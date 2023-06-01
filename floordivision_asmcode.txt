@@ -1,0 +1,35 @@
+// After the whole program runs, the quotient is saved to memory location 22.
+// In this example, dividend is 36 and divisor is 5.
+// So, the quotient is 7.
+// If you want to  change the
+
+0: ADD 20 100 // Setting the dividend
+1: ADD 21 110 // Setting the divisor
+2: ADD 30 100 // Setting the backup dividend for later comparison
+3: ADD 40 100 // Setting the bakcup dividend for later comparison
+4: ADD 31 110 // Setting the backup divisor for later comparison
+5: ADD 41 110 // Setting the backup divisor for later comparison
+6: NAND 21 21
+7: ADDi 21 1 // Taking the 2's complement
+8: CP 31 41 // tempDiv = div
+9: CP 30 40 // tempDvd = dvd
+10: ADD 20 21 // Subtraction
+11: CP 30 20 // Copy the new data
+12: ADDi 22 1 // Add 1 to quotient
+13: LT 31 30 // tempDiv < dividend (5 < 31 (after first stage)) ? 1:0
+14: BZJ 50 31
+15: CP 31 41
+16: BZJi 25 0
+17: ADDi 120 1
+20: 0 //Location of dividend
+21: 0 // Location of divisor
+22: 0 // Quotient
+25: 10
+30: 0 // Location of dividend
+31: 0 // Location of divisor
+40: 0
+41: 0
+50: 17
+100: 36 // Dividend
+110: 5 // Divisor
+120: 0
